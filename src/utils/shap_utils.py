@@ -1,6 +1,6 @@
 """
-SHAP-Hilfsfunktionen für den Streamlit-Demonstrator.
-Berechnung von SHAP-Werten und Erzeugung lesbarer Erklärungen.
+SHAP utility functions for the Streamlit demonstrator.
+Computation of SHAP values and generation of human-readable explanations.
 """
 
 import numpy as np
@@ -11,9 +11,9 @@ import streamlit as st
 
 def compute_shap_for_instance(model, model_name: str, instance_processed, X_train):
     """
-    Berechnet SHAP-Werte für eine einzelne vorverarbeitete Instanz.
-    Verwendet TreeExplainer für Baummodelle, KernelExplainer für LR.
-    Gibt (shap_values_1d, base_value_float) zurück.
+    Computes SHAP values for a single preprocessed instance.
+    Uses TreeExplainer for tree-based models, KernelExplainer for LR.
+    Returns (shap_values_1d, base_value_float).
     """
     np.random.seed(42)
 
@@ -25,20 +25,20 @@ def compute_shap_for_instance(model, model_name: str, instance_processed, X_trai
         explainer = shap.KernelExplainer(model.predict_proba, background)
         shap_values = explainer.shap_values(instance_processed, silent=True)
 
-    # Auf Klasse 1 (Bad) reduzieren
+    # Reduce to class 1 (bad)
     if isinstance(shap_values, list):
         shap_values = shap_values[1]
     elif isinstance(shap_values, np.ndarray) and shap_values.ndim == 3:
         shap_values = shap_values[:, :, 1]
 
-    # Base Value extrahieren
+    # Extract base value
     base_value = explainer.expected_value
     if isinstance(base_value, (list, np.ndarray)):
         base_value = float(np.array(base_value).flatten()[1])
     else:
         base_value = float(base_value)
 
-    # Auf 1D reduzieren falls nötig
+    # Reduce to 1D if needed
     sv = shap_values[0] if shap_values.ndim == 2 else shap_values
 
     return sv, base_value
@@ -46,9 +46,9 @@ def compute_shap_for_instance(model, model_name: str, instance_processed, X_trai
 
 def generate_top_reasons(shap_values_1d, feature_names: list, top_n: int = 5):
     """
-    Erzeugt sortierte Listen der risikosteigerden und risikosenkenden Faktoren.
-    Gibt (list_increasing, list_decreasing) zurück.
-    Jeder Eintrag ist ein Dict mit 'feature', 'shap_value', 'direction'.
+    Generates sorted lists of risk-increasing and risk-decreasing factors.
+    Returns (list_increasing, list_decreasing).
+    Each entry is a dict with 'feature', 'shap_value', 'direction'.
     """
     ranked = sorted(
         zip(feature_names, shap_values_1d),
@@ -63,7 +63,7 @@ def generate_top_reasons(shap_values_1d, feature_names: list, top_n: int = 5):
         entry = {
             "feature": feat.replace("_", " "),
             "shap_value": round(float(val), 4),
-            "direction": "↑ Risiko" if val > 0 else "↓ Risiko",
+            "direction": "↑ Risk" if val > 0 else "↓ Risk",
         }
         if val > 0:
             increasing.append(entry)
@@ -77,8 +77,8 @@ def render_waterfall_plot(shap_values_1d, base_value: float,
                           instance_data, feature_names: list,
                           max_display: int = 10):
     """
-    Erzeugt einen SHAP Waterfall-Plot und zeigt ihn in Streamlit an.
-    Kompakte Darstellung für Screenshots.
+    Renders a SHAP waterfall plot in Streamlit.
+    Compact layout for screenshots.
     """
     explanation = shap.Explanation(
         values=shap_values_1d,

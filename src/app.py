@@ -1,8 +1,8 @@
 """
-Credit Risk Evidence Pack - Streamlit-Demonstrator.
-Haupteinstiegspunkt mit Navigation.
+Credit Risk Evidence Pack - Streamlit Demonstrator.
+Main entry point with navigation.
 
-Ausfuehren: streamlit run src/app.py
+Run: streamlit run src/app.py
 """
 
 import warnings
@@ -10,7 +10,7 @@ import streamlit as st
 
 warnings.filterwarnings("ignore", category=FutureWarning)
 
-# --- Seiten-Konfiguration ---
+# --- Page config ---
 st.set_page_config(
     page_title="Credit Risk Evidence Pack",
     page_icon="🏦",
@@ -26,36 +26,36 @@ page = st.sidebar.radio(
     "Navigation",
     [
         "Evidence Pack",
-        "Modellvergleich",
-        "SHAP Analyse",
-        "Einzelfall-Pruefung",
-        "Archiv",
+        "Model Comparison",
+        "SHAP Analysis",
+        "Individual Case Evaluation",
+        "Archive",
     ],
 )
 
 st.sidebar.markdown("---")
 st.sidebar.caption(
-    "Prototyp im Rahmen der Bachelorarbeit\n\n"
-    "FH Technikum Wien - Wirtschaftsinformatik"
+    "Prototype developed as part of a Bachelor thesis\n\n"
+    "FH Technikum Wien - Business Informatics"
 )
 
-# --- Seitenweiche ---
+# --- Page routing ---
 if page == "Evidence Pack":
     from views.page_evidence import render
     render()
 
-elif page == "Modellvergleich":
+elif page == "Model Comparison":
     from views.page_models import render
     render()
 
-elif page == "SHAP Analyse":
+elif page == "SHAP Analysis":
     from views.page_shap import render
     render()
 
-elif page == "Einzelfall-Pruefung":
+elif page == "Individual Case Evaluation":
     from views.page_cases import render
     render()
 
-elif page == "Archiv":
+elif page == "Archive":
     from views.page_archive import render
     render()

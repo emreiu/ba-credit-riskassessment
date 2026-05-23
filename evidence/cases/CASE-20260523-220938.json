@@ -1,7 +1,7 @@
 {
-  "case_id": "CASE-20260523-150559",
-  "timestamp": "2026-05-23T15:05:59.690410",
-  "reference": "Datensatz Instanz #9",
+  "case_id": "CASE-20260523-220938",
+  "timestamp": "2026-05-23T22:09:38.785676",
+  "reference": "Dataset instance #9",
   "source_dataset_index": 9,
   "applicant_data": {
     "checking_account": "0-200 DM",
@@ -29,7 +29,7 @@
   "decision": {
     "production_model": "logistic_regression",
     "threshold": 0.5,
-    "result": "ABGELEHNT",
+    "result": "REJECTED",
     "p_good": 0.4056,
     "p_bad": 0.5944
   },
@@ -104,27 +104,27 @@
       {
         "feature": "checking account no checking account",
         "shap_value": 0.059,
-        "direction": "↑ Risiko"
+        "direction": "↑ Risk"
       },
       {
         "feature": "installment rate",
         "shap_value": 0.0405,
-        "direction": "↑ Risiko"
+        "direction": "↑ Risk"
       },
       {
         "feature": "employment years unemployed",
         "shap_value": 0.0403,
-        "direction": "↑ Risiko"
+        "direction": "↑ Risk"
       },
       {
         "feature": "duration months",
         "shap_value": 0.0393,
-        "direction": "↑ Risiko"
+        "direction": "↑ Risk"
       },
       {
         "feature": "personal status male: single",
         "shap_value": 0.033,
-        "direction": "↑ Risiko"
+        "direction": "↑ Risk"
       }
     ],
     "top_reasons_decreasing": []
