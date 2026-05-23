@@ -1,13 +1,13 @@
-# Automatisierte Compliance-Dokumentation und Benchmarking von Interpretierbarkeit im Credit Risk Assessment
-
-Prototyp im Rahmen der Bachelorarbeit an der FH Technikum Wien, Studiengang Wirtschaftsinformatik.
-
-## Übersicht
-
-Eine Python-basierte ML-Pipeline, die automatisiert auditierbares Evidence für Credit-Scoring-Modelle erzeugt und deren Interpretierbarkeit mittels SHAP systematisch analysiert. Der Prototyp vergleicht drei Modelle (Logistic Regression, Random Forest, XGBoost) auf dem German Credit Dataset und mappt die erzeugten Artefakte auf die Anforderungen des EU AI Acts (Art. 9–15).
-
+# Automated Compliance Documentation and Interpretability Benchmarking in Credit Risk Assessment
+ 
+Prototype developed as part of a Bachelor thesis at FH Technikum Wien, Business Informatics.
+ 
+## Overview
+ 
+A Python-based ML pipeline that automatically generates auditable evidence for credit scoring models and systematically analyzes their interpretability using SHAP. The prototype compares three models (Logistic Regression, Random Forest, XGBoost) on the German Credit Dataset and maps the generated artifacts to the requirements of the EU AI Act (Art. 9–15).
+ 
 ## Installation
-
+ 
 ```bash
 git clone https://github.com/DEIN-USERNAME/bachelorarbeit-credit-risk.git
 cd bachelorarbeit-credit-risk
@@ -16,30 +16,31 @@ venv\Scripts\activate          # Windows
 # source venv/bin/activate     # Mac/Linux
 pip install -r requirements.txt
 ```
-
-## Ausführung
-
+ 
+## Usage
+ 
 ```bash
-# Gesamte Pipeline mit Evidence Pack
+# Full pipeline with evidence pack
 python src/generate_evidence_pack.py
-
-# Reproduzierbarkeitstest
+ 
+# Reproducibility test
 python src/reproducibility_test.py
-
-# Streamlit-Demonstrator
+ 
+# Streamlit demonstrator
 streamlit run src/app.py
 ```
-
-## Projektstruktur
-
+ 
+## Project Structure
+ 
 ```
-src/           → Pipeline-Code und Streamlit-Demonstrator
-data/          → Datensatz, Hash, Preprocessing-Log
-models/        → Serialisierte Modelle
-plots/         → Erzeugte SHAP- und Evaluationsplots
-evidence/      → Evidence Packs und archivierte Einzelfallentscheidungen
+src/           → Pipeline code and Streamlit demonstrator
+data/          → Dataset, hash, preprocessing log
+models/        → Serialized models
+plots/         → Generated SHAP and evaluation plots
+evidence/      → Evidence packs and archived case decisions
 ```
-
-## Technologie
-
+ 
+## Technology
+ 
 Python 3.11 · scikit-learn · XGBoost · SHAP · Streamlit
+ 
