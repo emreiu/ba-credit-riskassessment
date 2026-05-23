@@ -1,0 +1,47 @@
+{
+  "logistic_regression": [
+    "checking_account_no checking account",
+    "duration_months",
+    "installment_rate",
+    "credit_history_critical account",
+    "savings_account_< 100 DM",
+    "personal_status_male: single",
+    "other_installments_none",
+    "checking_account_< 0 DM",
+    "credit_amount",
+    "savings_account_unknown / none"
+  ],
+  "random_forest": [
+    "checking_account_no checking account",
+    "checking_account_< 0 DM",
+    "duration_months",
+    "savings_account_< 100 DM",
+    "credit_history_critical account",
+    "credit_amount",
+    "other_installments_none",
+    "age",
+    "property_unknown / none",
+    "employment_years_< 1 year"
+  ],
+  "xgboost": [
+    "checking_account_no checking account",
+    "duration_months",
+    "credit_amount",
+    "credit_history_critical account",
+    "other_installments_none",
+    "savings_account_< 100 DM",
+    "employment_years_4-7 years",
+    "checking_account_< 0 DM",
+    "installment_rate",
+    "age"
+  ],
+  "overlap_all_three": [
+    "checking_account_< 0 DM",
+    "checking_account_no checking account",
+    "credit_amount",
+    "credit_history_critical account",
+    "duration_months",
+    "other_installments_none",
+    "savings_account_< 100 DM"
+  ]
+}

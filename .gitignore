@@ -1,12 +1,22 @@
+# Python
 __pycache__/
 *.pyc
-.ipynb_checkpoints/
-*.joblib
-*.pkl
-.env
+*.pyo
+ 
+# Virtuelle Umgebung
 venv/
+ 
+# Jupyter
+.ipynb_checkpoints/
+ 
+# IDE
 .vscode/
-data/*.csv
-models/
-evidence/
-.idea
+.idea/
+*.swp
+ 
+# Umgebungsvariablen
+.env
+ 
+# Betriebssystem
+.DS_Store
+Thumbs.db
