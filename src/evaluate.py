@@ -56,7 +56,7 @@ def plot_roc_curves(models: dict, X_test, y_test, output_dir: str = "plots"):
 
     ax.set_xlabel("False Positive Rate", fontsize=12)
     ax.set_ylabel("True Positive Rate", fontsize=12)
-    ax.set_title("ROC-Kurven: Modellvergleich", fontsize=14)
+    ax.set_title("ROC Curves: Model Comparison", fontsize=14)
     ax.legend(loc="lower right", fontsize=10)
     ax.set_xlim([0, 1])
     ax.set_ylim([0, 1.02])
@@ -87,7 +87,7 @@ def plot_confusion_matrices(models: dict, X_test, y_test, output_dir: str = "plo
         disp.plot(ax=axes[i], cmap="Blues", colorbar=False)
         axes[i].set_title(model_labels[name], fontsize=12)
 
-    plt.suptitle("Confusion Matrices: Modellvergleich", fontsize=14)
+    plt.suptitle("Confusion Matrices: Model Comparison", fontsize=14)
     plt.tight_layout()
 
     path = os.path.join(output_dir, "confusion_matrices.png")

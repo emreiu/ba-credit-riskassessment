@@ -7,7 +7,7 @@
       "solver": "lbfgs"
     },
     "best_cv_auc": 0.7740038872691934,
-    "training_time_seconds": 1.74,
+    "training_time_seconds": 1.82,
     "n_combinations_tested": 4,
     "test_metrics": {
       "auc_roc": 0.8105,
@@ -47,7 +47,7 @@
       "subsample": 0.8
     },
     "best_cv_auc": 0.773226433430515,
-    "training_time_seconds": 1.26,
+    "training_time_seconds": 1.53,
     "n_combinations_tested": 16,
     "test_metrics": {
       "auc_roc": 0.8028,
